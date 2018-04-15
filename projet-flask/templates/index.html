@@ -1,0 +1,42 @@
+<html>
+    <head>
+    	<link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet" type="text/css"/>
+		<meta charset="utf-8" />
+        <title>Status des sites</title>
+    </head>
+    <body>
+    	<a href="http://127.0.0.1:5000/">Accueil</a>
+        <a href="http://127.0.0.1:5000/connexion">Connexion</a>
+        <h1 class="text-center">Listes des sites</h1>
+            {% for elem in liste %}
+                {% if elem[1] >= 200 and elem[1] < 300 %}
+                    <div class="container_ok">
+                        <div>{{elem[0]}}</div>
+                        <h2>HTTP : {{elem[1]}} </h2>
+                        <a href="/fiche/{{elem[2]}}">
+                            <div>En savoir plus</div> 
+                        </a>
+                    </div>
+                 {% endif %}
+                 {% if elem[1] >= 400 and elem [1] < 500 %}
+                    <div class="container_400">
+               
+                    <div>{{elem[0]}}</div>
+                        <h2>Status : {{elem[1]}} </h2>
+                        <a href="/fiche/{{elem[2]}}">
+                            <div>En savoir plus</div> 
+                        </a>
+                    </div>
+                 {% endif %} 
+                   {% if elem[1] >= 500 %}
+                    <div class="container_500">
+                        <div>{{elem[0]}}</div>
+                        <h2>Status : {{elem[1]}} </h2>
+                        <a href="/fiche/">
+                            <div>En savoir plus</div> 
+                        </a>
+                    </div>
+                 {% endif %} 
+            {% endfor %}
+    </body>
+</html>

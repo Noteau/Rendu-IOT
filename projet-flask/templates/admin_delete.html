@@ -1,0 +1,17 @@
+<html>
+    <head>
+    	<link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet" type="text/css"/>
+		<meta charset="utf-8" />
+        <title>Administration</title>
+    </head>
+    <body>
+    	<a href="http://127.0.0.1:5000/">Accueil</a>
+        <a href="http://127.0.0.1:5000/logout">Se déconnecter</a>
+        <h3>Voulez vous supprimer : {{site[0]}} ?</h3>
+          <a href="http://127.0.0.1:5000/admin/destroy/{{choix}}"><div>Oui, supprimez-le</div></a>
+          <a href="http://127.0.0.1:5000/admin"><div>Non, on annule</div></a>
+        {% if error %}
+            <p class="error"><strong>Erreur:</strong> {{ error }}
+        {% endif %}
+    </body>
+</html>

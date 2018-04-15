@@ -1,0 +1,21 @@
+<html>
+    <head>
+    	<link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet" type="text/css"/>
+		<meta charset="utf-8" />
+        <title>Administration</title>
+    </head>
+    <body>
+    	<a href="http://127.0.0.1:5000/">Accueil</a>
+        <a href="http://127.0.0.1:5000/logout">Se déconnecter</a>
+        <h3>Modifier : {{site[0]}} </h3>
+          <form action="" method="post">
+            <input style="width: 700px;" type="text" placeholder="{{site[0]}}" name="url" value="{{
+          request.form.url}}" >
+            <input class="btn btn-default" type="submit" value="Modifier le site">
+        </form>
+         <a href="http://127.0.0.1:5000/admin"><input class="btn btn-default" type="submit" value="Annuler"></a>
+        {% if error %}
+            <p class="error"><strong>Erreur:</strong> {{ error }}
+        {% endif %}
+    </body>
+</html>

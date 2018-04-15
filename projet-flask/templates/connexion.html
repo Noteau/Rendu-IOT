@@ -1,0 +1,22 @@
+<html>
+    <head>
+    	<link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet" type="text/css"/>
+		<meta charset="utf-8" />
+        <title>Connexion/Login</title>
+    </head>
+    <body>
+    	<a href="http://127.0.0.1:5000/">Accueil</a>
+   		<a href="http://127.0.0.1:5000/connexion">Connexion</a>
+    	<h1 class="accueil">Connexion</h1>
+		<form action="" method="post">
+                <input type="text" placeholder="Username" name="username" value="{{
+          request.form.username }}">
+                <input type="password" placeholder="Password" name="password" value="{{
+          request.form.password }}">
+				<input class="btn btn-default" type="submit" value="Login">
+		</form>
+        {% if error %}
+            <p class="error"><strong>Erreur:</strong> {{ error }}
+        {% endif %}
+    </body>
+</html>

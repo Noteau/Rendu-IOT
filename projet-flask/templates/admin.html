@@ -1,0 +1,23 @@
+<html>
+    <head>
+    	<link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet" type="text/css"/>
+		<meta charset="utf-8" />
+        <title>Administration</title>
+    </head>
+    <body>
+    	<a href="http://127.0.0.1:5000/">Accueil</a>
+        <a href="http://127.0.0.1:5000/logout">Se déconnecter</a>
+        <a href="/admin/add">Ajouter un site</a>     
+        <div>Bienvenue Admin !</div>
+        <h3 style="margin-bottom: 10px; margin-left: 120px;">Liste des sites </h3>
+        {% for site in sites %}
+        <div>
+            <h2 class="site_admin">{{site[0]}} : {{site[1]}}</h2>
+            <a href="/admin/modifier/{{site[0]}}"><div class="modify">Modifier</div></a>
+            <a href="/admin/supprimer/{{site[0]}}"><div class="delete">Supprimer</div></a>
+            <div></div>
+        </div>
+        {% endfor %}
+        
+    </body>
+</html>

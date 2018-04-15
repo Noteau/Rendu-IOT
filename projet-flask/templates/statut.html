@@ -1,0 +1,14 @@
+<html>
+    <head>
+    	<link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet" type="text/css"/>
+		<meta charset="utf-8" />
+        <title>Statut</title>
+    </head>
+    <body>
+    	<h1>Statut du site : {% if r.status_code %}
+    		{{r.status_code}}
+    		{% else %}
+    		{{ r }}
+    		{% endif %}</h1>
+    </body>
+</html>

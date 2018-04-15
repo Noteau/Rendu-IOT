@@ -1,0 +1,31 @@
+<html>
+    <head>
+    	<link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet" type="text/css"/>
+		<meta charset="utf-8" />
+        <title>Fiche de log</title>
+    </head>
+    <body>
+        <a href="http://127.0.0.1:5000/">Accueil</a>
+        <a href="http://127.0.0.1:5000/connexion">Connexion</a>
+    	<div>Site : {{logs[0][0]}}</div>
+        <div>Historique :</div>
+        {% for log in logs %}
+            {%if log[1] >= 200 and log[1] < 300 %}
+                <div class="container_ok">
+                    <div>- {{log[1]}} le {{log[2]}} </div>
+                </div>
+            {%endif%}
+            {%if log[1] >= 400 and log[1] < 500 %}
+                <div class="container_400">
+                    <div>- {{log[1]}} le {{log[2]}} </div>
+                </div>
+            {%endif%}
+            {%if log[1] >= 500 %}
+                <div class="container_500">
+                    <div>- {{log[1]}} le {{log[2]}} </div>
+                </div>
+            {%endif%}
+        {% endfor %}
+
+    </body>
+</html>

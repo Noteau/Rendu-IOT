@@ -1,0 +1,23 @@
+<html>
+    <head>
+    	<link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet" type="text/css"/>
+		<meta charset="utf-8"/>
+        <title>Ajout d'un site</title>
+    </head>
+    <body>
+    	<a href="http://127.0.0.1:5000/">Accueil</a>
+        <a href="http://127.0.0.1:5000/logout">Se déconnecter</a>
+        <div>Bienvenue Admin !</div>
+        <h1>Ajouter un site à monitorer</h1>
+        <div>Adresse :</div>
+        <form action="" method="post">
+            <input type="text" placeholder="http://google.fr" name="url" value="{{
+          request.form.url}}">
+            <input class="btn btn-default" type="submit" value="Ajouter le site">
+        </form>
+        <a href="http://127.0.0.1:5000/admin"><input class="btn btn-default" type="submit" value="Annuler"></a>
+        {% if error %}
+            <p class="error"><strong>Erreur:</strong> {{ error }}
+        {% endif %}
+    </body>
+</html>
