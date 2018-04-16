@@ -6,7 +6,7 @@ conn = sqlite3.connect('projet.db')
 
 cursor = conn.cursor()
 while True:
-	time.sleep(5)
+	time.sleep(120)
 	cursor.execute('SELECT url,id FROM sites')
 	listes = cursor.fetchall()
 	date_now = datetime.datetime.now()
